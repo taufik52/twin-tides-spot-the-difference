@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Tides — Spot the Difference</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="brand">
+      <span class="brand-mark">&#9889;</span>
+      <span class="brand-name">TWIN TIDES</span>
+      <span class="brand-sub">spot the difference</span>
+    </div>
+    <div class="hud-stats">
+      <div class="stat" id="stat-round"><span class="stat-label">Round</span><span class="stat-value" id="round-label">1 / 3</span></div>
+      <div class="stat" id="stat-found"><span class="stat-label">Found</span><span class="stat-value" id="found-label">0 / 7</span></div>
+      <div class="stat" id="stat-time"><span class="stat-label">Time left</span><span class="stat-value" id="time-label">2:30</span></div>
+      <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="score-label">0</span></div>
+    </div>
+    <div class="hud-actions">
+      <button id="btn-hint" type="button" title="Hint (H)">Hint <b id="hint-count">3</b></button>
+      <button id="btn-restart" type="button" title="Restart round (R)">Restart</button>
+      <button id="btn-sound" type="button" title="Sound on/off">Sound: On</button>
+    </div>
+  </header>
+
+  <div id="round-banner">
+    <span id="round-name">Round 1 — Harbor Dawn</span>
+    <span id="round-tag">Seven small changes hide between the two pictures. Find them all before the tide runs out.</span>
+  </div>
+
+  <main id="panels">
+    <section class="panel" id="panel-a-wrap">
+      <div class="panel-label"><span>Panel A</span><em>original</em></div>
+      <canvas id="panel-a" width="560" height="420" aria-label="Left picture: the original harbor scene"></canvas>
+    </section>
+    <section class="panel" id="panel-b-wrap">
+      <div class="panel-label"><span>Panel B</span><em>spot the differences</em></div>
+      <canvas id="panel-b" width="560" height="420" aria-label="Right picture: the harbor scene with differences"></canvas>
+    </section>
+  </main>
+
+  <footer id="helpbar">
+    <span>Click a difference on either panel to mark it.</span>
+    <span>Wrong click: &minus;3 seconds.</span>
+    <span><kbd>H</kbd> hint &nbsp; <kbd>R</kbd> restart round</span>
+    <span id="message">Welcome aboard — press Start to play.</span>
+  </footer>
+
+  <div id="overlay" class="overlay-show">
+    <div id="overlay-card">
+      <h1 id="overlay-title">TWIN TIDES</h1>
+      <p id="overlay-text">Two harbor pictures hang side by side. They look the same — they are not. Seven, then nine, then eleven small changes hide between them. Click every difference before the timer runs out.</p>
+      <p class="overlay-rules">Mouse: click a difference &middot; <kbd>H</kbd>: hint (3 per round) &middot; <kbd>R</kbd>: restart round<br>Wrong clicks cost 3 seconds. Hints cost nothing but pride.</p>
+      <button id="btn-start" type="button">Start the hunt</button>
+    </div>
+  </div>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<script src="./scenes.js"></script>
+<script src="./audio.js"></script>
+<script src="./game.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
